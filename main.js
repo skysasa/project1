@@ -11,14 +11,28 @@
 
 let computerNum = 0;
 let playButton = document.getElementById("click");
+let resetButton = document.querySelector(".reset");
 // let userInput = document.getElementById("user-input");
+//또는
 //let userInput = document.getElementsByClassName("user-input")[0];
 //또는
 let userInput = document.querySelector(".user-input");
 
 let resultArea = document.querySelector(".result");
+let chancesArea = document.querySelector(".remaining");
+let historyArea = document.querySelector(".history");
+let chances = 3;
+let gameOver = false;
+
+let history = [];
+let resultImg = document.querySelector(".result-img");
 
 playButton.addEventListener("click", play);
+
+resetButton.addEventListener("click", reset);
+userInput.addEventListener("focus", function () {
+  userInput.value = "";
+});
 
 function pickRandomNum() {
   computerNum = Math.floor(Math.random() * 100) + 1;
@@ -27,14 +41,53 @@ function pickRandomNum() {
 
 function play() {
   let userValue = userInput.value;
+  if (userValue < 1 || userValue > 100) {
+    alert("1과 100사이 숫자를 입력해주세요");
+    return;
+  }
+  if (history.includes(userValue)) {
+    alert("같은 숫자를 입력하셨습니다. 다른 숫자를 입력해주세요");
+    return;
+  }
+  chances--;
+  chancesArea.textContent = `남은기회: ${chances}`;
   //console.log(userValue);
   if (userValue < computerNum) {
+    resultImg.src = "./img/up1.jpg";
     resultArea.textContent = "UP";
   } else if (userValue > computerNum) {
+    resultImg.src = "/project1/img/down.jpg";
     resultArea.textContent = "DOWN";
   } else {
+    resultImg.src = "/project1/img/good.jpg";
     resultArea.textContent = "맞추셨습니다.";
+    gameOver = true;
   }
+
+  history.push(userValue);
+  historyArea.textContent = `내가 추측한 숫자 리스트: ${history}`;
+
+  if (chances < 1) {
+    gameOver = true;
+    resultImg.src = "/project1/img/wrong.jpg";
+  }
+  if (gameOver == true) {
+    playButton.disabled = true;
+    resultArea.textContent = `정답은 ${computerNum}`;
+  }
+}
+
+function reset() {
+  userInput.value = "";
+  pickRandomNum();
+  gameOver = false;
+  history = [];
+  chances = 3;
+  playButton.disabled = false;
+  resultArea.textContent = ``;
+  chancesArea.textContent = `남은기회: 3`;
+  historyArea.textContent = `내가 추측한 숫자 리스트: `;
+  resultImg.src = "./img/main.jpg";
 }
 
 pickRandomNum();

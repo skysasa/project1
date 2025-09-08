@@ -1,0 +1,55 @@
+body {
+  background-image: url("./img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainbody {
+  text-align: center;
+  background-color: rgba(30, 30, 30, 0.95);
+  border-radius: 20px;
+  margin: 20px;
+}
+.mainbody h1 {
+  font-family: "Arial Black", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff2d2d;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.result-img {
+  width: 300px;
+  height: auto;
+}
+
+.bottom {
+  margin: 20px;
+  font-family: "Arial Black", sans-serif;
+  color: #ff2d2d;
+}
+.history {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+.user-input {
+  width: 200px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  background-color: #2a2a2a;
+  color: #fff;
+  box-sizing: border-box;
+}

@@ -7,17 +7,21 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="mainbody">
     <div><h1>숫자맞추기 게임</h1></div>
-    <div>
+    <img class="result-img" src="./img/main.jpg"></img>
+    <div class="bottom">
       <div class="result"></div>
-      <div class="remaining">남은 기회:</div>
-      <div class="answer">정답:</div>
+      <div class="remaining">남은기회: 3</div>
+      <div class="history">내가 추측한 숫자 리스트: </div>
       <input
         class="user-input"
         type="number"
         placeholder="1 부터 100까지 숫자를 입력 "
       />
       <button id="click">입력완료</button>
+      <button class="reset">Reset</button>
+    </div>
     </div>
 
     <script src="main.js"></script>
