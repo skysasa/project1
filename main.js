@@ -67,13 +67,14 @@ function play() {
   history.push(userValue);
   historyArea.textContent = `내가 추측한 숫자 리스트: ${history}`;
 
-  if (chances < 1) {
+  if (!gameOver && chances === 0) {
     gameOver = true;
     resultImg.src = "./img/wrong.jpg";
+    resultArea.textContent = `기회를 모두 사용하셨습니다. 정답은 ${computerNum}입니다.`;
   }
-  if (gameOver == true) {
+
+  if (gameOver === true) {
     playButton.disabled = true;
-    resultArea.textContent = `정답은 ${computerNum}`;
   }
 }
 
