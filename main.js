@@ -56,10 +56,10 @@ function play() {
     resultImg.src = "./img/up1.jpg";
     resultArea.textContent = "UP";
   } else if (userValue > computerNum) {
-    resultImg.src = "/project1/img/down.jpg";
+    resultImg.src = "./img/down.jpg";
     resultArea.textContent = "DOWN";
   } else {
-    resultImg.src = "/project1/img/good.jpg";
+    resultImg.src = "./img/good.jpg";
     resultArea.textContent = "맞추셨습니다.";
     gameOver = true;
   }
@@ -69,7 +69,7 @@ function play() {
 
   if (chances < 1) {
     gameOver = true;
-    resultImg.src = "/project1/img/wrong.jpg";
+    resultImg.src = "./img/wrong.jpg";
   }
   if (gameOver == true) {
     playButton.disabled = true;
